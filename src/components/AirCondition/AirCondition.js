@@ -5,7 +5,12 @@ import Layout from "../Layout/Layout";
 const AirCondition = ({ data }) => {
   const noDataProvided =
     !data || Object.keys(data).length === 0 || data.cod === "404";
-  let content = <>Please enter a location</>;
+  let content = (
+    <>
+      Please enter a location or give permission to share your location in your
+      browser
+    </>
+  );
 
   if (!noDataProvided) {
     content = (

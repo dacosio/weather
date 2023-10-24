@@ -7,7 +7,6 @@ import { Weather } from "./context/WeatherContext";
 
 function App() {
   const { weather, forecast } = Weather();
-  console.log(weather, forecast);
 
   return (
     <Container
