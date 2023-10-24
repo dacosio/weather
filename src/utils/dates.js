@@ -16,3 +16,10 @@ export function transformDateFormat() {
   const newFormatDate = year.toString().concat("-", month, "-", day, " ", time);
   return newFormatDate;
 }
+
+export function getDayMonthFromDate() {
+  const month = MONTHS[date.getMonth()].slice(0, 3);
+  const day = date.getUTCDate();
+
+  return day + ' ' + month;
+}

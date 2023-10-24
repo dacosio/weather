@@ -27,8 +27,10 @@ const SearchBar = () => {
       location.lat(),
       location.lng()
     );
-
-    updateWeather(weatherResponse, forcastResponse);
+    updateWeather(
+      { city: place.formatted_address, ...weatherResponse },
+      forcastResponse
+    );
   };
 
   return (
@@ -36,6 +38,18 @@ const SearchBar = () => {
       <Autocomplete
         apiKey={"AIzaSyDCkerF8aJzunKfoUjGALoCexYEcJBlmKA"}
         onPlaceSelected={handleSearch}
+        style={{
+          backgroundColor: "transparent", // Make the input background transparent
+          border: "none", // Remove the input border
+          borderBottom: "1px solid #fff", // Add a white bottom border
+          color: "#fff", // Text color
+          padding: "10px", // Add some padding for spacing
+          width: "100%", // Make the input expand to the full width of the container
+          // backgroundImage: "linear-gradient(-35deg, #000428 0%, #47b9d9)", // Background gradient
+          outline: "none",
+          fontSize: "1.5rem",
+          marginBottom: "2rem",
+        }}
       />
     </div>
   );
