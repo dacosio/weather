@@ -3,9 +3,12 @@ import { Box, Container, Grid, Link, SvgIcon, Typography } from "@mui/material";
 import SearchBar from "./components/Search/SearchBar";
 import { Place } from "./context/PlaceContext";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
-import { fetchWeatherData } from "./api/weatherApi";
+import { Weather } from "./context/WeatherContext";
 
 function App() {
+  const { weather, forecast } = Weather();
+  console.log(weather, forecast);
+
   return (
     <Container
       sx={{
