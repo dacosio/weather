@@ -6,10 +6,10 @@ const AirCondition = ({ data }) => {
   const noDataProvided =
     !data || Object.keys(data).length === 0 || data.cod === "404";
   let content = (
-    <>
+    <div style={{width: '100%'}}>
       Please enter a location or give permission to share your location in your
       browser
-    </>
+    </div>
   );
 
   if (!noDataProvided) {
