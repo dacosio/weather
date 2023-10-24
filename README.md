@@ -1,13 +1,10 @@
-
 # Project Title
 
 Weather Forecast Application
 
+## Demo
 
-## Authors
-
-- [Don Cosio](https://www.github.com/dacosio)
-
+https://weather-lilac-chi.vercel.app/
 
 ## Environment Variables
 
@@ -16,12 +13,6 @@ To run this project, you will need to add the following environment variables to
 `REACT_APP_MAPS_API_KEY`=<google Places API key>
 
 `REACT_APP_WEATHER_API_KEY`=<openweathermap API key>
-
-
-## Documentation
-
-[Documentation](https://linktodocumentation)
-
 
 ## Installation
 
@@ -36,8 +27,11 @@ Install and run with npm or yarn
   yarn
   yarn run
 ```
-    
+
+## Authors
+
+- [Don Cosio](https://www.github.com/dacosio)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
