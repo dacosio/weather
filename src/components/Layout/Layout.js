@@ -9,6 +9,7 @@ const Layout = ({ content, title, sx, mb, sectionSubHeader }) => {
         <SectionHeader title={title} mb={mb || "0"} />
         {sectionSubHeader || null}
       </Grid>
+      {/* content is like a children */}
       {content}
     </Grid>
   );

@@ -7,6 +7,7 @@ import { WeatherProvider } from "./context/WeatherContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* App has to be the children of WeatherProvider to make the state and function passed from WeatherContext available throuough the App */}
     <WeatherProvider>
       <App />
     </WeatherProvider>

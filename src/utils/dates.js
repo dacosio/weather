@@ -2,6 +2,7 @@ import { MONTHS, DAYS } from "./const";
 
 const date = new Date();
 
+//basic date transformer
 export function transformDateFormat() {
   const month = date.toLocaleString("en-US", { month: "2-digit" });
   const day = date.toLocaleString("en-US", { day: "2-digit" });
@@ -31,7 +32,7 @@ export function getWeekDays() {
   );
   return days;
 }
-
+// instead of using lodash or ramda, i used grouping instead to make it pure javascript as possible
 export function groupBy(key) {
   return function group(array) {
     return array.reduce((acc, obj) => {
@@ -44,6 +45,9 @@ export function groupBy(key) {
   };
 }
 
+/* There are forecast every 3-hour is so i made this function to get the Average of all the forecasted results
+ except the temperature weekly forecast since the requirements is temp range
+*/
 export function getAverage(array, isRound = true) {
   let average = 0;
   if (isRound) {
@@ -56,6 +60,7 @@ export function getAverage(array, isRound = true) {
   return average;
 }
 
+//I used hashmap to get the most frequent element inside an array of results
 export function getMostFrequentWeather(arr) {
   const hashmap = arr.reduce((acc, val) => {
     acc[val] = (acc[val] || 0) + 1;
@@ -65,12 +70,13 @@ export function getMostFrequentWeather(arr) {
     hashmap[a] > hashmap[b] ? a : b
   );
 }
-
+// openweathermap api has all the possible weather description that we can correspond to an icon
 export const descriptionToIconName = (desc, descriptions_list) => {
   let iconName = descriptions_list.find((item) => item.description === desc);
   return iconName.icon || "unknown";
 };
 
+// This is for temperate range
 export const getLowestAndHighest = (arr) => {
   if (arr.length === 0) {
     return "Array is empty";
@@ -82,6 +88,7 @@ export const getLowestAndHighest = (arr) => {
   return `${Math.round(lowest)} - ${Math.round(highest)}`;
 };
 
+//this is to get the forecast for weather that has been grouped by date as per line 115
 export const getWeekForecastWeather = (response, descriptions_list) => {
   let foreacast_data = [];
   let descriptions_data = [];

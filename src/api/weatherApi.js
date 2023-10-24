@@ -1,5 +1,5 @@
 const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
-
+// This is to fetch the weather that will return weatherResponse and forecast
 export async function fetchWeatherData(lat, lon) {
   try {
     let [weatherPromise, forcastPromise] = await Promise.all([

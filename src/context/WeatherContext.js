@@ -5,7 +5,6 @@ const WeatherContext = createContext();
 
 // Create the search context provider
 export const WeatherProvider = ({ children }) => {
-  // default location is langara college
   const [weather, setWeather] = useState();
   const [forecast, setForecast] = useState();
 
@@ -15,6 +14,7 @@ export const WeatherProvider = ({ children }) => {
   };
 
   return (
+    // i made the weather, forecast and updateWeather function available globally thru our context provider
     <WeatherContext.Provider value={{ weather, forecast, updateWeather }}>
       {children}
     </WeatherContext.Provider>
