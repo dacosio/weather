@@ -1,59 +1,39 @@
-import { useEffect, useState } from "react";
-import useDateTime from "./utils/hooks/useDateTime";
-import useWeatherData from "./utils/hooks/useWeatherData";
-import usePosition from "./utils/hooks/usePosition";
+import React, { useEffect, useState } from "react";
+import { Box, Container, Grid, Link, SvgIcon, Typography } from "@mui/material";
+import SearchBar from "./components/Search/SearchBar";
 import { Place } from "./context/PlaceContext";
-import SearchBar from "./components/SearchBar/SearchBar";
-import { setKey, setLanguage, fromAddress } from "react-geocode";
-import Forecast from "./components/Forecast/Forecast";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import { fetchWeatherData } from "./api/weatherApi";
 
-const App = () => {
-  const [locationFilter, setLocationFilter] = useState({
-    latitude: "",
-    longitude: "",
-  });
-  // const { date, time, day } = useDateTime(1698019260);
-  // const { latitude, longitude, error } = usePosition();
-
-  const { placeValue } = Place();
-  setKey(process.env.REACT_APP_MAPS_API_KEY);
-  setLanguage("en");
-
-  const weatherData = useWeatherData(
-    locationFilter.latitude,
-    locationFilter.longitude
-  );
-  console.log(weatherData);
-
-  useEffect(() => {
-    if (placeValue?.formatted_address) {
-      fromAddress(placeValue.formatted_address).then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          setLocationFilter({ latitude: lat, longitude: lng });
-        },
-        (error) => {
-          setLocationFilter({ latitude: "", longitude: "" });
-          console.error(error);
-        }
-      );
-    } else {
-      setLocationFilter({ latitude: "", longitude: "" });
-    }
-  }, [placeValue]);
-
-  console.log(locationFilter);
+function App() {
   return (
-    <div>
-      <h1>Weather App</h1>
-      <div>
-        <SearchBar height="36px" resetAddressInfo={() => null} />
-      </div>
-      <div>
-        <Forecast />
-      </div>
-    </div>
+    <Container
+      sx={{
+        maxWidth: { xs: "95%", sm: "80%", md: "1100px" },
+        width: "100%",
+        height: "100%",
+        margin: "0 auto",
+        padding: "1rem 0 3rem",
+        marginBottom: "1rem",
+        borderRadius: {
+          xs: "none",
+          sm: "0 0 1rem 1rem",
+        },
+        boxShadow: {
+          xs: "none",
+          sm: "rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px",
+        },
+      }}>
+      <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
+          {/* <TodayWeather data={todayWeather} forecastList={todayForecast} /> */}
+          {/* <CurrentWeather data={data} /> */}
+          <Grid container sx={{ padding: "3rem 0 0" }}></Grid>
+        </Grid>
+      </Grid>
+      <SearchBar />
+    </Container>
   );
-};
+}
 
 export default App;

@@ -5,7 +5,8 @@ const PlaceContext = createContext();
 
 // Create the search context provider
 export const PlaceProvider = ({ children }) => {
-  const [placeValue, setPlaceValue] = useState("");
+  // default location is langara college
+  const [placeValue, setPlaceValue] = useState({lat: 49.2258, lng: -123.1084});
 
   const updatePlaceValue = (value) => {
     setPlaceValue(value);

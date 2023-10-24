@@ -1,20 +1,16 @@
-:root {
-  --sky-blue: #87ceeb;
-  --sun-yellow: #ffd700;
-  --cloud-white: #ffffff;
-  --rain-gray: #808080;
-  --thunderstorm-indigo: #191970;
-  --snow-white: #fffafa;
-  --foggy-silver: #c0c0c0;
-  --sunset-orange: #ff6f61;
-  --night-black: #000000;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400;700&display=swap");
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+  background: linear-gradient(-35deg, #000428 0%, #47b9d9);
+  padding-top: 2rem;
 }
 
 code {
