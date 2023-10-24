@@ -4,7 +4,7 @@ Weather Forecast Application
 
 ## Demo
 
-https://weather-lilac-chi.vercel.app/
+https://weather-dacosio.vercel.app/
 
 ## Environment Variables
 
